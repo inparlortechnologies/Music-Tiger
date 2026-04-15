@@ -1,39 +1,352 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Support</title>
-<style>
-body {
-  font-family: Arial;
-  background: linear-gradient(135deg, #1e3c72, #2a5298);
-  color: white;
-  text-align: center;
-  padding: 20px;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#07111f">
+  <meta name="description" content="Music Tiger by Inparlor Technologies. Public pages with privacy, support, and marketing information.">
+  <title>Support — Music Tiger</title>
+  <style>
+:root{
+  --bg:#07111f;
+  --bg2:#0d1b2f;
+  --card:rgba(255,255,255,0.08);
+  --card-strong:rgba(255,255,255,0.12);
+  --text:#eef6ff;
+  --muted:#b8c7db;
+  --accent:#7ef7c5;
+  --accent-2:#8fb8ff;
+  --accent-3:#ffd36e;
+  --line:rgba(255,255,255,0.12);
+  --shadow:0 20px 60px rgba(0,0,0,0.35);
+  --radius:24px;
 }
-.box {
-  background: rgba(255,255,255,0.1);
-  padding: 20px;
-  border-radius: 15px;
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(circle at 10% 20%, rgba(126,247,197,0.16), transparent 24%),
+    radial-gradient(circle at 90% 10%, rgba(143,184,255,0.18), transparent 30%),
+    radial-gradient(circle at 50% 100%, rgba(255,211,110,0.12), transparent 24%),
+    linear-gradient(160deg, var(--bg), var(--bg2) 55%, #101d33);
+  min-height:100vh;
+  overflow-x:hidden;
 }
-a {
-  color: #00c6ff;
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size:28px 28px;
+  mask-image:radial-gradient(circle at center, black 50%, transparent 100%);
+}
+a{color:inherit;text-decoration:none}
+.container{width:min(1120px, calc(100% - 28px)); margin:0 auto;}
+.topbar{
+  position:sticky; top:0; z-index:20;
+  backdrop-filter: blur(18px);
+  background:rgba(7,17,31,0.52);
+  border-bottom:1px solid rgba(255,255,255,0.08);
+}
+.nav{
+  display:flex; align-items:center; justify-content:space-between; gap:14px;
+  padding:14px 0;
+}
+.brand{
+  display:flex; align-items:center; gap:12px; min-width:0;
+}
+.logo{
+  width:44px; height:44px; border-radius:16px;
+  background:
+    conic-gradient(from 200deg, var(--accent), var(--accent-2), var(--accent-3), var(--accent));
+  box-shadow:0 10px 30px rgba(126,247,197,0.25);
+  position:relative; flex:0 0 auto;
+}
+.logo::after{
+  content:"";
+  position:absolute; inset:8px; border-radius:12px;
+  background:linear-gradient(135deg, rgba(7,17,31,0.92), rgba(14,28,49,0.92));
+  border:1px solid rgba(255,255,255,0.12);
+}
+.brand-text{min-width:0}
+.brand-text strong{display:block; font-size:0.98rem}
+.brand-text span{display:block; color:var(--muted); font-size:0.8rem; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.nav-links{
+  display:flex; flex-wrap:wrap; justify-content:flex-end; gap:10px;
+}
+.nav-links a{
+  padding:10px 14px; border-radius:999px;
+  border:1px solid rgba(255,255,255,0.09);
+  background:rgba(255,255,255,0.04);
+  transition:transform .18s ease, background .18s ease, border-color .18s ease;
+  font-size:0.94rem;
+}
+.nav-links a:hover, .nav-links a.active{
+  transform:translateY(-1px);
+  background:rgba(255,255,255,0.08);
+  border-color:rgba(126,247,197,0.35);
+}
+.hero{
+  padding:72px 0 26px;
+  position:relative;
+}
+.hero-grid{
+  display:grid; grid-template-columns:1.1fr 0.9fr; gap:22px;
+}
+.panel{
+  background:linear-gradient(180deg, rgba(255,255,255,0.09), rgba(255,255,255,0.05));
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+}
+.hero-card{
+  padding:30px;
+}
+.kicker{
+  display:inline-flex; gap:8px; align-items:center;
+  padding:8px 12px;
+  border-radius:999px;
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.1);
+  color:var(--muted);
+  font-size:0.83rem;
+}
+h1{
+  font-size:clamp(2.1rem, 4vw, 4.3rem);
+  line-height:1.02;
+  margin:16px 0 14px;
+  letter-spacing:-0.03em;
+}
+.lead{
+  color:var(--muted);
+  font-size:1.05rem;
+  line-height:1.75;
+  max-width:60ch;
+}
+.action-row{
+  display:flex; flex-wrap:wrap; gap:12px;
+  margin-top:24px;
+}
+.btn{
+  padding:13px 18px; border-radius:16px;
+  border:1px solid rgba(255,255,255,0.1);
+  background:rgba(255,255,255,0.06);
+  transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  box-shadow:0 12px 30px rgba(0,0,0,0.18);
+}
+.btn:hover{transform:translateY(-2px); border-color:rgba(126,247,197,0.45)}
+.btn.primary{
+  background:linear-gradient(135deg, rgba(126,247,197,0.22), rgba(143,184,255,0.18));
+  border-color:rgba(126,247,197,0.32);
+}
+.visual{
+  min-height:320px;
+  position:relative;
+  overflow:hidden;
+  padding:22px;
+}
+.orbit{
+  position:absolute; inset:auto;
+  border:1px solid rgba(255,255,255,0.12);
+  border-radius:50%;
+  animation:spin 18s linear infinite;
+}
+.orbit.one{width:280px;height:280px; right:-40px; top:18px;}
+.orbit.two{width:190px;height:190px; right:22px; top:62px; animation-duration:11s; animation-direction:reverse;}
+.orbit.three{width:110px;height:110px; right:66px; top:102px; animation-duration:8s;}
+.core{
+  position:absolute; right:82px; top:116px;
+  width:82px;height:82px;border-radius:24px;
+  background:conic-gradient(from 45deg, var(--accent), var(--accent-2), var(--accent-3), var(--accent));
+  box-shadow:0 20px 60px rgba(126,247,197,0.28);
+  transform:rotate(18deg);
+}
+.core::after{
+  content:"♫";
+  position:absolute; inset:0;
+  display:grid; place-items:center;
+  color:#08111f; font-size:2rem; font-weight:800;
+}
+.info-stack{
+  position:absolute; left:18px; right:18px; bottom:18px;
+  display:grid; gap:12px;
+}
+.glass{
+  padding:14px 16px;
+  border-radius:18px;
+  background:rgba(7,17,31,0.55);
+  border:1px solid rgba(255,255,255,0.1);
+  backdrop-filter: blur(16px);
+}
+.glass strong{display:block; margin-bottom:5px}
+section{padding:14px 0 40px}
+.cards{
+  display:grid; grid-template-columns:repeat(3,1fr); gap:18px;
+}
+.card{padding:22px}
+.card h3{margin:8px 0 10px; font-size:1.06rem}
+.card p, .rich p, .rich li, .footer p{
+  color:var(--muted); line-height:1.78;
+}
+.icon-chip{
+  width:42px; height:42px; border-radius:14px; display:grid; place-items:center;
+  background:linear-gradient(135deg, rgba(126,247,197,0.18), rgba(143,184,255,0.16));
+  border:1px solid rgba(255,255,255,0.1);
+  font-size:1.1rem;
+}
+.rich{
+  padding:26px;
+}
+.rich h2{
+  font-size:clamp(1.5rem, 2.2vw, 2.4rem);
+  margin:0 0 14px;
+  letter-spacing:-0.02em;
+}
+.rich ul{padding-left:20px}
+.rich li{margin:10px 0}
+.grid-2{
+  display:grid; grid-template-columns:1fr 1fr; gap:18px;
+}
+.badge{
+  display:inline-block; margin:0 8px 8px 0;
+  padding:8px 12px; border-radius:999px;
+  border:1px solid rgba(255,255,255,0.1);
+  background:rgba(255,255,255,0.05);
+  color:var(--text);
+  font-size:0.88rem;
+}
+.footer{
+  padding:12px 0 34px;
+}
+.footer-box{
+  padding:20px;
+  display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap;
+}
+.small{font-size:0.92rem}
+.note{
+  border-left:3px solid rgba(126,247,197,0.5);
+  padding-left:14px;
+}
+@keyframes spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+@media (max-width: 900px){
+  .hero-grid,.grid-2,.cards{grid-template-columns:1fr}
+  .visual{min-height:300px}
+}
+@media (max-width: 640px){
+  .container{width:min(100% - 20px, 1120px)}
+  .nav{align-items:flex-start; flex-direction:column}
+  .nav-links{width:100%; justify-content:flex-start}
+  .hero{padding-top:34px}
+  .hero-card,.rich,.card{padding:20px}
+  .visual{min-height:280px}
+  .orbit.one{width:220px;height:220px; right:-34px; top:24px}
+  .orbit.two{width:150px;height:150px; right:12px; top:58px}
+  .orbit.three{width:88px;height:88px; right:48px; top:92px}
+  .core{right:60px; top:104px; width:66px; height:66px}
 }
 </style>
 </head>
 <body>
+  
+    <header class="topbar">
+      <div class="container nav">
+        <a class="brand" href="index.html" aria-label="Go to homepage">
+          <div class="logo" aria-hidden="true"></div>
+          <div class="brand-text">
+            <strong>Music Tiger</strong>
+            <span>Inparlor Technologies</span>
+          </div>
+        </a>
+        <nav class="nav-links" aria-label="Primary">
+          <a href="index.html" >Home</a>
+          <a href="privacy-policy.html" >Privacy Policy</a>
+          <a href="support.html" class="active">Support</a>
+          <a href="marketing.html" >Marketing</a>
+        </nav>
+      </div>
+    </header>
+    
+  
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="panel hero-card">
+          <div class="kicker">Open • Clear • Mobile Friendly</div>
+          <h1>Support and Contact</h1>
+          <p class="lead">Need help, want to report an issue, or have a suggestion? This page provides a direct contact point for users and reviewers.</p>
+          <div class="action-row">
+            <a class="btn primary" href="privacy-policy.html">Read Privacy Policy</a>
+            <a class="btn" href="support.html">Contact Support</a>
+            <a class="btn" href="marketing.html">About the Project</a>
+          </div>
+        </div>
+        <div class="panel visual" aria-hidden="true">
+          <div class="orbit one"></div>
+          <div class="orbit two"></div>
+          <div class="orbit three"></div>
+          <div class="core"></div>
+          <div class="info-stack">
+            <div class="glass">
+              <strong>Developer</strong>
+              <div class="small">Inparlor Technologies</div>
+            </div>
+            <div class="glass">
+              <strong>Public contact</strong>
+              <div class="small">inparlortechnologies@gmail.com</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+  
+    <main class="container">
+      <section class="grid-2">
+        <article class="panel rich">
+          <h2>Support contact</h2>
+          <p>For questions, bug reports, feedback, or review-related communication, please contact:</p>
+          <p><strong>Inparlor Technologies</strong><br><a href="mailto:inparlortechnologies@gmail.com">inparlortechnologies@gmail.com</a></p>
+          <p>The developer aims to review messages and improve the app experience over time.</p>
+        </article>
+        <article class="panel rich">
+          <h2>What you can write about</h2>
+          <ul>
+            <li>Technical issues or errors in the application</li>
+            <li>Feature suggestions and usability feedback</li>
+            <li>Questions about app behavior</li>
+            <li>Store review or policy-related clarifications</li>
+          </ul>
+        </article>
+      </section>
 
-<div class="box">
-  <h1>Support</h1>
-  <p>If you need help or found a bug, feel free to contact us.</p>
-
-  <p>Email: inparlortechnologies@gmail.com</p>
-
-  <p>We try to respond as quickly as possible.</p>
-
-  <a href="index.html">← Back to Home</a>
-</div>
-
+      <section>
+        <article class="panel rich">
+          <h2>Support approach</h2>
+          <p>Inparlor Technologies values clear communication and practical improvement. Every message can help make <strong>Music Tiger</strong> better, more stable, and more useful for users.</p>
+          <p class="note">This support page is intentionally simple and transparent so that users and platform reviewers can immediately see how to contact the developer.</p>
+        </article>
+      </section>
+    </main>
+    
+  
+    <footer class="footer">
+      <div class="container">
+        <div class="panel footer-box">
+          <div>
+            <strong>Music Tiger</strong>
+            <p class="small">A public information hub for users, reviewers, and store moderation.</p>
+          </div>
+          <div>
+            <p class="small">Developer: Inparlor Technologies<br>Email: <a href="mailto:inparlortechnologies@gmail.com">inparlortechnologies@gmail.com</a></p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
 </body>
 </html>
