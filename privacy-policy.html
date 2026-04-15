@@ -239,10 +239,68 @@ section{padding:14px 0 40px}
   .visual{min-height:300px}
 }
 @media (max-width: 640px){
-  .container{width:min(100% - 20px, 1120px)}
-  .nav{align-items:flex-start; flex-direction:column}
-  .nav-links{width:100%; justify-content:flex-start}
-  .hero{padding-top:34px}
+  .container{width:min(100% - 18px, 1120px)}
+  .topbar{
+    background:linear-gradient(180deg, rgba(7,17,31,0.88), rgba(7,17,31,0.72));
+    backdrop-filter: blur(20px);
+  }
+  .nav{
+    align-items:stretch;
+    flex-direction:column;
+    gap:12px;
+    padding:12px 0 14px;
+  }
+  .brand{
+    gap:10px;
+    padding:2px 2px 0;
+  }
+  .logo{
+    width:42px;
+    height:42px;
+    border-radius:14px;
+  }
+  .brand-text strong{
+    font-size:1rem;
+    line-height:1.1;
+  }
+  .brand-text span{
+    font-size:0.82rem;
+    opacity:.92;
+  }
+  .nav-links{
+    width:100%;
+    justify-content:flex-start;
+    flex-wrap:nowrap;
+    overflow-x:auto;
+    overflow-y:hidden;
+    gap:10px;
+    padding:2px 1px 4px;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+    mask-image:linear-gradient(to right, transparent 0, black 14px, black calc(100% - 14px), transparent 100%);
+  }
+  .nav-links::-webkit-scrollbar{display:none}
+  .nav-links a{
+    flex:0 0 auto;
+    padding:11px 16px;
+    border-radius:999px;
+    font-size:0.95rem;
+    white-space:nowrap;
+    background:linear-gradient(180deg, rgba(255,255,255,0.065), rgba(255,255,255,0.04));
+    border:1px solid rgba(255,255,255,0.11);
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.05),
+      0 10px 26px rgba(0,0,0,0.18);
+  }
+  .nav-links a.active{
+    background:linear-gradient(135deg, rgba(126,247,197,0.18), rgba(143,184,255,0.14));
+    border-color:rgba(126,247,197,0.4);
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.08),
+      0 12px 28px rgba(0,0,0,0.2),
+      0 0 0 1px rgba(126,247,197,0.06);
+  }
+  .hero{padding-top:22px}
   .hero-card,.rich,.card{padding:20px}
   .visual{min-height:280px}
   .orbit.one{width:220px;height:220px; right:-34px; top:24px}
