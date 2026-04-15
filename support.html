@@ -49,9 +49,9 @@ body::before{
 a{color:inherit;text-decoration:none}
 .container{width:min(1120px, calc(100% - 28px)); margin:0 auto;}
 .topbar{
-  position:sticky; top:0; z-index:20;
+  position:sticky; top:0; z-index:30;
   backdrop-filter: blur(18px);
-  background:rgba(7,17,31,0.52);
+  background:rgba(7,17,31,0.58);
   border-bottom:1px solid rgba(255,255,255,0.08);
 }
 .nav{
@@ -84,7 +84,7 @@ a{color:inherit;text-decoration:none}
   padding:10px 14px; border-radius:999px;
   border:1px solid rgba(255,255,255,0.09);
   background:rgba(255,255,255,0.04);
-  transition:transform .18s ease, background .18s ease, border-color .18s ease;
+  transition:transform .18s ease, background .18s ease, border-color .18s ease, box-shadow .18s ease;
   font-size:0.94rem;
 }
 .nav-links a:hover, .nav-links a.active{
@@ -241,7 +241,7 @@ section{padding:14px 0 40px}
 @media (max-width: 640px){
   .container{width:min(100% - 18px, 1120px)}
   .topbar{
-    background:linear-gradient(180deg, rgba(7,17,31,0.88), rgba(7,17,31,0.72));
+    background:linear-gradient(180deg, rgba(7,17,31,0.92), rgba(7,17,31,0.78));
     backdrop-filter: blur(20px);
   }
   .nav{
@@ -269,23 +269,20 @@ section{padding:14px 0 40px}
   }
   .nav-links{
     width:100%;
-    justify-content:flex-start;
-    flex-wrap:nowrap;
-    overflow-x:auto;
-    overflow-y:hidden;
+    display:grid;
+    grid-template-columns:repeat(2, minmax(0, 1fr));
     gap:10px;
-    padding:2px 1px 4px;
-    -webkit-overflow-scrolling:touch;
-    scrollbar-width:none;
-    mask-image:linear-gradient(to right, transparent 0, black 14px, black calc(100% - 14px), transparent 100%);
+    padding:2px 0 2px;
   }
-  .nav-links::-webkit-scrollbar{display:none}
   .nav-links a{
-    flex:0 0 auto;
-    padding:11px 16px;
-    border-radius:999px;
+    min-width:0;
+    width:100%;
+    text-align:center;
+    padding:12px 10px;
+    border-radius:18px;
     font-size:0.95rem;
-    white-space:nowrap;
+    white-space:normal;
+    line-height:1.2;
     background:linear-gradient(180deg, rgba(255,255,255,0.065), rgba(255,255,255,0.04));
     border:1px solid rgba(255,255,255,0.11);
     box-shadow:
@@ -293,6 +290,7 @@ section{padding:14px 0 40px}
       0 10px 26px rgba(0,0,0,0.18);
   }
   .nav-links a.active{
+    transform:none;
     background:linear-gradient(135deg, rgba(126,247,197,0.18), rgba(143,184,255,0.14));
     border-color:rgba(126,247,197,0.4);
     box-shadow:
